@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+		<h3>Posts:</h3>
+		<a href="{% url 'blog:add_article' %}">Add</a>
+		<a href="{% url 'blog:article_for_change' %}">Change</a>
+		<a class="delete" href="{% url 'blog:del_article' %}">Delete</a>
+		<hr>
+		<h4>Comments:</h4>
+		<a href="{% url 'blog:comment_for_change' %}">Change</a>
+		<a class="delete" href="{% url 'blog:del_comment' %}">Delete</a>
+		<hr>
+		<h4>Category:</h4>
+		<a href="{% url 'blog:add_category' %}">Add</a>
+		<a href="{% url 'blog:category_for_change' %}">Change</a>
+		<a class="delete" href="{% url 'blog:del_category' %}">Delete</a>
+		<hr>
+		<a href="{% url 'blog:change_password' %}">Change password</a>
+	</div>
+{% endblock %}

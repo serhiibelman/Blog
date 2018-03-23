@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+		<form action="{% url 'blog:add_article' %}" method="post">
+			{% csrf_token %}
+
+			<h4>Add article:</h4>
+			<hr>
+			{% include 'blog/form_template.html' %}
+			<button type="submit">
+				Add
+			</button>
+		</form>
+	</div>
+{% endblock %}

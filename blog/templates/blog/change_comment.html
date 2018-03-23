@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+		<form action="" method="post">
+			{% csrf_token %}
+			<h4>Change comment:</h4>
+			<hr>
+			<label for="user_name">Comment user_name:</label><br>
+			<input type="text" name="user_name" value="{{ comment.user_name }}" id="user_name"><br>
+			<label for="user_email">Comment user_email:</label><br>
+			<input type="text" name="user_email" value="{{ comment.user_email }}" id="user_email"><br>
+			<label for="comment_text">Comment text:</label><br>
+			<textarea name="comment_text" id="comment_text">{{ comment.comment_text }}</textarea><br>
+			<button type="Change">
+				Change
+			</button>
+		</form>
+	</div>
+{% endblock %}

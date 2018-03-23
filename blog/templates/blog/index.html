@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner positioner-index">
+		<div class="index">
+			<h3>Recent posts:</h3>
+			<hr>
+			{% for article in articles %}
+				<h4><a href="{% url 'blog:detail' article.id article.slug %}">{{ article.article_title }}</a></h4>
+				<p>Comments: {{ article.comments_number }}</p>
+				{% if article.hashtag_set.all|length > 0 %}
+					<p class="tags-category">Tags:</p>
+					{% for tag in article.hashtag_set.all %}
+						<a href="#">
+							{{ tag }}
+						</a> 
+					{% endfor %}
+				{% endif %}
+				<br>
+				<p class="tags-category">Category: </p>
+				{% for category in article.category.all %}
+					<a class="tags-category" href="{% url 'blog:selected_category' category.slug %}">
+						{{ category.category_name }}
+					</a> 
+				{% endfor %}
+				<hr>
+			{% endfor %}
+		</div>
+		<div class="category">
+			<h4>Category</h4>
+			<ul>
+				{% for category in categories %}
+					<li><a href="{% url 'blog:selected_category' category.slug %}">{{ category.category_name }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+{% endblock %}

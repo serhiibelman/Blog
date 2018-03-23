@@ -1,0 +1,41 @@
+.positioner {
+	width: 70%;
+	margin: auto;
+	/*border: 2px dashed red;*/
+}
+
+.index {
+	width: 60%;
+	float: left;
+	/*border: 2px dashed red;*/
+}
+
+.positioner-index {
+	clear: both;
+	content: " ";
+	display: table;
+}
+
+.category {
+	width: 20%;
+	float: right;
+}
+
+.tags-category {
+	display: inline;
+}
+
+.delete {
+	color: red;
+}
+
+.btn-delete {
+	background: red;
+	color: white;
+	border-color: red;
+	border-radius: 4px;
+}
+
+hr {
+	border: 2px solid black: 
+}

@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+
+		<h3>{{ article.article_title }}</h3>
+		<p>{{ article.article_content }}</p>
+		<hr>
+		<form action="{% url 'blog:add_comment' article.id article.slug %}" method="post">
+			{% csrf_token %}
+
+			<h4>Comments here:</h4>
+			{% for comment in comments %}
+				<p><strong>{{ comment.user_name }}: </strong><br>{{ comment.user_email }}</p>
+				<p>{{ comment.comment_text }}</p>
+			{% endfor %}
+			<hr>
+			{% include 'blog/form_template.html' %}
+			<button type="submit">
+				Comment
+			</button>
+		</form>
+	</div>
+{% endblock %}

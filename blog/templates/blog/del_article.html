@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+		<form action="" method="post">
+			{% csrf_token %}
+
+			<h4>Delete article:</h4>
+			<hr>
+			{% for article in articles %}
+				<input type="radio" name="article" id="article{{ forloop.counter }}" value="{{ article.id }}" />
+				<label for="article{{ forloop.counter }}">{{ article.article_title }}</label><br/>
+
+			{% endfor %}
+			<button type="submit" class="btn-delete">
+				Delete
+			</button>
+		</form>
+	</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+		<form action="" method="post">
+			{% csrf_token %}
+			<h4>Select category to change:</h4>
+			<hr>
+			{% for comment in comments %}
+				<a href="{% url 'blog:change_comment' comment.id %}">{{ comment.comment_text }}</a><br>
+			{% endfor %}
+		</form>
+	</div>
+{% endblock %}

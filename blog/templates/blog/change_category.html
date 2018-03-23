@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+		<form action="" method="post">
+			{% csrf_token %}
+			<h4>Change category {{ category.category_name }}:</h4>
+			<hr>
+			<label for="name">Category name:</label><br>
+			<input type="text" name="category_name" value="{{ category.category_name }}" id="name"><br>
+			<label for="slug">Slug:</label><br>
+			<input type="text" name="slug" value="{{ category.slug }}" id="slug"><br>
+			<button type="Change">
+				Change
+			</button>
+		</form>
+	</div>
+{% endblock %}

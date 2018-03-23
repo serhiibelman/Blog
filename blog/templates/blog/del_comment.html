@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+		<form action="" method="post">
+			{% csrf_token %}
+
+			<h4>Delete category:</h4>
+			<hr>
+			{% for comment in comments %}
+				<input type="radio" name="comment" id="comment{{ forloop.counter }}" value="{{ comment.id }}" />
+				<label for="comment{{ forloop.counter }}">{{ comment.user_name }}: {{ comment.comment_text }}</label><br/>
+
+			{% endfor %}
+			<button type="submit" class="btn-delete">
+				Delete
+			</button>
+		</form>
+	</div>
+{% endblock %}

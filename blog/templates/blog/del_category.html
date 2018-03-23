@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+		<form action="" method="post">
+			{% csrf_token %}
+
+			<h4>Delete category:</h4>
+			<hr>
+			{% for category in categories %}
+				<input type="radio" name="category" id="category{{ forloop.counter }}" value="{{ category.id }}" />
+				<label for="category{{ forloop.counter }}">{{ category.category_name }}</label><br/>
+
+			{% endfor %}
+			<button type="submit" class="btn-delete">
+				Delete
+			</button>
+		</form>
+	</div>
+{% endblock %}

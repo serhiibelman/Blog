@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+		<div class="">
+			<h3>All posts in {{ slug }} category:</h3>
+			<hr>
+			<ul>
+				{% for article in articles %}
+					<li>{{ article.article_title }}</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+{% endblock %}

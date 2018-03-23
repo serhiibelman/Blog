@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+		<form action="" method="post">
+			{% csrf_token %}
+			<h4>Select article to change:</h4>
+			<hr>
+			{% for article in articles %}
+				<a href="{% url 'blog:change_article' article.id %}">{{ article.article_title }}</a><br>
+			{% endfor %}
+		</form>
+	</div>
+{% endblock %}

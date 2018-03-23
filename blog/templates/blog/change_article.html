@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+	<div class="positioner">
+		<form action="" method="post">
+			{% csrf_token %}
+			<h4>Change article {{ article.article_title }}:</h4>
+			<hr>
+			<label for="name">Article title:</label><br>
+			<input type="text" name="article_title" value="{{ article.article_title }}" id="name"><br>
+			<label for="article_content">Article content:</label><br>
+			<!-- <input type="textarea" name="article_content" value="{{ article.article_content }}" id="article_content"><br> -->
+			<textarea name="article_content" value="{{ article.article_content }}" id="article_content">{{ article.article_content }}</textarea><br>
+			<label for="slug">Slug:</label><br>
+			<input type="text" name="slug" value="{{ article.slug }}" id="slug"><br>
+			<button type="Change">
+				Change
+			</button>
+		</form>
+	</div>
+{% endblock %}
